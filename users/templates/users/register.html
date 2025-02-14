@@ -1,0 +1,14 @@
+{% extends 'main/index.html'%}
+{% block content %}
+    <h1>Регистрация</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {%for f in form%}
+            <label for="{{f.id_for_label}}">{{f.label}}: </label><br>
+            {{f}}<br>
+            <div class="form-error">{{f.errors}}</div>
+        {% endfor %}
+        <input class="btn" type="submit" value="Регистрация">
+    </form>
+{%endblock%}
